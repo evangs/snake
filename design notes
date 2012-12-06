@@ -1,0 +1,83 @@
+Game
+	Snake player
+	Food[] food //holds all food currently active
+	int score
+	bool game_over
+
+Segment
+	int x, y
+	int num
+	move()
+	show()
+
+Snake
+	int x, y
+	Segment head
+	Segment[] body
+	int segments_length
+	handle_input()
+	move()
+	show()
+	grow()
+	check_collision() //check for collisions between the head and body, head and walls, head and food
+
+Food
+	int type
+	int x, y
+	show()
+
+	
+
+move()
+		prev_x, prev_y
+		prev_x = head.x
+		prev_y = head.y
+		head.move
+		for (i = 0; i < segments_length; i++)
+		{
+			tmpx = segments[i].x
+			tmpy = segments[i].y
+			segments[i].move(prev_x, prev_y)
+			prev_x = tmpx
+			prev_y = tmpy
+		}
+	show()
+		head.show
+		for (i = 0; i < segments_length; i++)
+		{
+			segments[i].show
+		}
+	grow()
+		seg = new Segment
+		segments[segments_length] = seg
+		segments_length++
+	check_collision() //check for collisions between the head and body, head and walls, head and food
+		//collision between head and body
+		for (i =0; i < segments_length; i++)
+		{
+			if collision(head, segment[i])
+			{
+				num_removed = segments_length - segment[i].num
+				percent = num_removed / segments_length
+				score -= score * percent
+				segments_length = segment[i].num
+				break
+			}
+		}
+		//collision between head and walls
+		if collision(head, walls)
+		{
+			game_over = true
+		}
+		//collision between head and food
+		for (i = 0; i < food_length; i++)
+		{
+			if collision(head, food[i])
+			{
+				for (j = 0; j < food[i].type; j++)
+				{
+					grow()
+					score += 10
+				}
+			}
+		}

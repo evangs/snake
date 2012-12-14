@@ -13,7 +13,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>tk.ehom.snake</string>
 	<key>CFBundleName</key>
-	<string>Checkers</string>
+	<string>Snake</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
